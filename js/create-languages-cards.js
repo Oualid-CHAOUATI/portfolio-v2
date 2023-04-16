@@ -10,6 +10,11 @@ const languages = [
     icon_src: "css",
   },
   {
+    name: "Tailwind Css",
+    level: "",
+    icon_src: "tailwind",
+  },
+  {
     name: "Javascript",
     level: "",
     icon_src: "javascript",
@@ -19,11 +24,7 @@ const languages = [
     level: "",
     icon_src: "typescript",
   },
-  {
-    name: "Tailwind Css",
-    level: "",
-    icon_src: "tailwind",
-  },
+
   {
     name: "React js",
     level: "",
@@ -32,12 +33,12 @@ const languages = [
 
   {
     name: "Angular js",
-    level: "basics",
+    level: "basises",
     icon_src: "angular",
   },
   {
     name: "PHP",
-    level: "basics",
+    level: "bases",
     icon_src: "php",
   },
   {

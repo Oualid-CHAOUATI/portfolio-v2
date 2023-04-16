@@ -1,26 +1,29 @@
-const circularText = document.querySelector("#circular-text");
-const words = circularText.innerHTML.split(" ");
+const circularTexts = document.querySelectorAll(".circular-text");
 
-const letters = [];
+circularTexts.forEach((circularText) => {
+  const words = circularText.innerHTML.split(" ");
 
-words.forEach((word, i, words) => {
-  const length = words.length;
+  const letters = [];
 
-  const wordLetters = word.split("").map(
-    (letter) => `<div class='letter-circular'>
+  words.forEach((word, i, words) => {
+    const length = words.length;
+
+    const wordLetters = word.split("").map(
+      (letter) => `<div class='letter-circular'>
     <span>
     
     ${letter}
     </span>
     
     </div>`
-  );
-  letters.push(...wordLetters);
-  if (i < length)
-    letters.push("<div class='letter-circular empty-letter'></div>");
-});
+    );
+    letters.push(...wordLetters);
+    if (i < length)
+      letters.push("<div class='letter-circular empty-letter'></div>");
+  });
 
-circularText.innerHTML = letters.join("");
-const spans = circularText
-  .querySelectorAll("div")
-  .forEach((span, i) => span.style.setProperty("--number", i));
+  circularText.innerHTML = letters.join("");
+  const spans = circularText
+    .querySelectorAll("div")
+    .forEach((span, i) => span.style.setProperty("--number", i));
+});
