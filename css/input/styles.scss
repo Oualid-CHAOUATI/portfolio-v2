@@ -1,0 +1,305 @@
+
+
+
+body{
+
+   background:rgb(1, 1, 29);
+   color:#fff;
+
+   font-size: clamp(14px,2vw,24px);
+   font-family: 'Sawarabi Mincho', serif;
+}
+
+[logo]{
+    font-family: 'Indie Flower', cursive;
+    text-decoration: none;
+
+    .letter{
+
+        @apply inline-block;
+
+        &:nth-child(2){
+            transform: translateY(-10%);
+        }
+        &:nth-child(3){
+            transform: translateY(-30%);
+        }
+        &:nth-child(4){
+            transform: translateY(-50%);
+        }
+
+
+        & ~[letter]{
+            margin-left: -7px;
+        }
+
+        }
+}
+
+nav{
+    @apply p-4 border-b-2 border-blue-600
+}
+
+#hero-title{
+    @apply text-center text-lg;
+
+    font-size: 3em;
+    >*{
+        display: block;
+        line-height:170%;
+    }
+
+
+    .top{
+
+        font-family: 'Satisfy', cursive;
+    }
+
+    .bottom-wrapper{
+        @apply flex flex-col items-center;
+
+
+        #underline-svg{
+            @apply inline-block mt-6;
+        }
+    }
+
+
+    &:hover .bottom{
+        gap:.6em;
+    }
+    .bottom{
+
+        @apply inline-flex justify-center items-center gap-16  relative; 
+        gap:.5em;
+        transition: 300ms;
+
+        font-size: 2.5em;
+        font-family: 'Bebas Neue', cursive;
+
+
+        svg[id*="shape"]{
+            opacity: .3;
+            height: 1em;
+        }
+        #shape-right{
+
+        @apply rotate-180
+    }
+
+
+    #group-stars{
+        @apply absolute  top-2 right-14 ;
+        height: .3em;
+    }
+    }
+
+
+    .role{
+        font-size: .5em;
+        
+        font-family: 'Bebas Neue', cursive;
+        
+    
+    }
+    
+}
+.description{
+@apply text-center mx-auto;    
+max-width: 90ch;
+}
+
+
+.scroll-down-btn{
+    
+    $s:6em;
+    
+    height: $s;
+    aspect-ratio: 1;
+    display: block;
+    background-color: blue;
+
+    @apply grid place-items-center rounded-full mx-auto my-16;
+position: relative;
+
+&:hover{
+    #circular-text{.letter-circular:nth-child(2n){
+        width: 57%;
+    }}
+svg{
+    transition: 300ms;
+}
+    svg{
+        filter:drop-shadow(0 0 24px yellow) drop-shadow(0 0 24px yellow) drop-shadow(0 0 14px yellow) drop-shadow(0 0 44px yellow);
+    }
+
+}
+
+    #circular-text{
+        animation: turn 16s infinite linear;
+        position: absolute;
+        inset: -1.5em;
+        border-radius: 50%;
+        text-transform: uppercase;
+        font-size: .8em;
+      
+    .letter-circular{
+        position: absolute;
+        width: 50%;
+        top: 50%;
+        transform: translateY(-50%) rotate(calc(var(--number) * 15deg));
+        display: block;
+        text-align: left;
+        right: 50%;
+        transform-origin: right;
+        transition: width 300ms;
+        span{
+            display: inline-block;
+            transform: rotate(-90deg);
+        }
+    }
+ 
+    }
+
+}
+
+@keyframes turn{
+    from{
+        transform: rotate(0);
+    }
+    to{
+        transform: rotate(1turn);
+
+    }
+}
+
+
+.turn{
+    animation: turn 6s infinite linear;
+}
+
+
+[class*='custom-cursor'] {
+    /* --x:-100vh; */
+    --size:1em;
+    --scale:1;
+    position: fixed;
+    pointer-events: none;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    height: calc(var(--size) * var(--scale));
+
+    border: 2px solid yellow;
+    transform: translate(-50%, -50%);
+    
+    left:var(--x,0);
+    top:var(--y,0);
+    transition: 100ms;
+    
+    
+    &.dot{
+        border: 0;
+        --size:.2em;
+        background-color: yellow;;
+        transition: 200ms;
+  }
+
+
+}
+
+body.scale{
+    [class*='custom-cursor'] {
+        
+        --scale:3;
+        
+    }
+}
+body.leave{
+        [class*='custom-cursor'] {
+            opacity: 0;
+        }
+
+    }
+
+
+
+
+
+    // ----------------------------
+
+    .languages-wrapper{
+        
+        @apply flex gap-10 justify-center flex-wrap;
+        padding: 4em;
+        
+        .language-wrapper{
+            &:hover{
+                .language-sub-wrapper{
+    
+                    transform: rotate( -10deg)
+                }
+    
+            }
+
+        }
+        .language-sub-wrapper{
+            background-color: blue;
+            border: 5px solid blue;;
+            border-top: 0;
+            transform-origin: 0% 100%;
+            transition: 200ms;    
+            transition-timing-function: cubic-bezier(1, -0.41, 0.07, 1.01);
+            will-change: transform;;
+
+
+            .top{
+                display: flex;
+                align-items: center;
+                padding-block: .4em;
+                gap: .4em;
+
+
+// square
+                span{
+                    display: inline-block;
+                    aspect-ratio: 1;
+                    height: .8em;
+                    border: .2em solid #fff;;
+
+                }
+            }
+            
+            img{
+                
+                height: 5em;
+                // width: 3em;
+                // aspect-ratio: 1;
+                width: 100%;
+                object-fit: contain;
+                border: .4em solid black;;
+                background-color: #070a36;
+                padding: 1em;
+                // border-radius: .6em;
+            }
+        }
+
+
+        p.language-name-level-wrapper{
+            // font-size: .9em;
+
+            span{
+                display: block;
+            }
+            .language-name{
+
+            }
+            .language-level{
+                font-size: .9em;
+                opacity: .7;
+                text-transform: capitalize;
+            }
+        }
+
+
+    }
+                

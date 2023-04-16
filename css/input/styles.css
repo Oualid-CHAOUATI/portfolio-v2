@@ -1,0 +1,207 @@
+body {
+  background: rgb(1, 1, 29);
+  color: #fff;
+  font-size: clamp(14px, 2vw, 24px);
+  font-family: "Sawarabi Mincho", serif;
+}
+
+[logo] {
+  font-family: "Indie Flower", cursive;
+  text-decoration: none;
+}
+[logo] .letter {
+  @apply inline-block;
+}
+[logo] .letter:nth-child(2) {
+  transform: translateY(-10%);
+}
+[logo] .letter:nth-child(3) {
+  transform: translateY(-30%);
+}
+[logo] .letter:nth-child(4) {
+  transform: translateY(-50%);
+}
+[logo] .letter ~ [letter] {
+  margin-left: -7px;
+}
+
+nav {
+  @apply p-4 border-b-2 border-blue-600;
+}
+
+#hero-title {
+  @apply text-center text-lg;
+  font-size: 3em;
+}
+#hero-title > * {
+  display: block;
+  line-height: 170%;
+}
+#hero-title .top {
+  font-family: "Satisfy", cursive;
+}
+#hero-title .bottom-wrapper {
+  @apply flex flex-col items-center;
+}
+#hero-title .bottom-wrapper #underline-svg {
+  @apply inline-block mt-6;
+}
+#hero-title:hover .bottom {
+  gap: 0.6em;
+}
+#hero-title .bottom {
+  @apply inline-flex justify-center items-center gap-16  relative;
+  gap: 0.5em;
+  transition: 300ms;
+  font-size: 2.5em;
+  font-family: "Bebas Neue", cursive;
+}
+#hero-title .bottom svg[id*=shape] {
+  opacity: 0.3;
+  height: 1em;
+}
+#hero-title .bottom #shape-right {
+  @apply rotate-180;
+}
+#hero-title .bottom #group-stars {
+  @apply absolute  top-2 right-14;
+  height: 0.3em;
+}
+#hero-title .role {
+  font-size: 0.5em;
+  font-family: "Bebas Neue", cursive;
+}
+
+.description {
+  @apply text-center mx-auto;
+  max-width: 90ch;
+}
+
+.scroll-down-btn {
+  height: 6em;
+  aspect-ratio: 1;
+  display: block;
+  background-color: blue;
+  @apply grid place-items-center rounded-full mx-auto my-16;
+  position: relative;
+}
+.scroll-down-btn:hover #circular-text .letter-circular:nth-child(2n) {
+  width: 57%;
+}
+.scroll-down-btn:hover svg {
+  transition: 300ms;
+}
+.scroll-down-btn:hover svg {
+  filter: drop-shadow(0 0 24px yellow) drop-shadow(0 0 24px yellow) drop-shadow(0 0 14px yellow) drop-shadow(0 0 44px yellow);
+}
+.scroll-down-btn #circular-text {
+  animation: turn 16s infinite linear;
+  position: absolute;
+  inset: -1.5em;
+  border-radius: 50%;
+  text-transform: uppercase;
+  font-size: 0.8em;
+}
+.scroll-down-btn #circular-text .letter-circular {
+  position: absolute;
+  width: 50%;
+  top: 50%;
+  transform: translateY(-50%) rotate(calc(var(--number) * 15deg));
+  display: block;
+  text-align: left;
+  right: 50%;
+  transform-origin: right;
+  transition: width 300ms;
+}
+.scroll-down-btn #circular-text .letter-circular span {
+  display: inline-block;
+  transform: rotate(-90deg);
+}
+
+@keyframes turn {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+.turn {
+  animation: turn 6s infinite linear;
+}
+
+[class*=custom-cursor] {
+  /* --x:-100vh; */
+  --size:1em;
+  --scale:1;
+  position: fixed;
+  pointer-events: none;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  height: calc(var(--size) * var(--scale));
+  border: 2px solid yellow;
+  transform: translate(-50%, -50%);
+  left: var(--x, 0);
+  top: var(--y, 0);
+  transition: 100ms;
+}
+[class*=custom-cursor].dot {
+  border: 0;
+  --size:.2em;
+  background-color: yellow;
+  transition: 200ms;
+}
+
+body.scale [class*=custom-cursor] {
+  --scale:3;
+}
+
+body.leave [class*=custom-cursor] {
+  opacity: 0;
+}
+
+.languages-wrapper {
+  @apply flex gap-10 justify-center flex-wrap;
+  padding: 4em;
+}
+.languages-wrapper .language-wrapper:hover .language-sub-wrapper {
+  transform: rotate(-10deg);
+}
+.languages-wrapper .language-sub-wrapper {
+  background-color: blue;
+  border: 5px solid blue;
+  border-top: 0;
+  transform-origin: 0% 100%;
+  transition: 200ms;
+  transition-timing-function: cubic-bezier(1, -0.41, 0.07, 1.01);
+  will-change: transform;
+}
+.languages-wrapper .language-sub-wrapper .top {
+  display: flex;
+  align-items: center;
+  padding-block: 0.4em;
+  gap: 0.4em;
+}
+.languages-wrapper .language-sub-wrapper .top span {
+  display: inline-block;
+  aspect-ratio: 1;
+  height: 0.8em;
+  border: 0.2em solid #fff;
+}
+.languages-wrapper .language-sub-wrapper img {
+  height: 5em;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  border: 0.4em solid black;
+  background-color: #070a36;
+  padding: 1em;
+}
+.languages-wrapper p.language-name-level-wrapper span {
+  display: block;
+}
+.languages-wrapper p.language-name-level-wrapper .language-level {
+  font-size: 0.9em;
+  opacity: 0.7;
+  text-transform: capitalize;
+}/*# sourceMappingURL=styles.css.map */
