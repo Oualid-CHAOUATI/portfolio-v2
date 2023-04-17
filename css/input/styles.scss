@@ -12,6 +12,11 @@ body {
   font-family: "Sawarabi Mincho", serif;
 }
 
+.container {
+  @apply mx-auto;
+  max-width: 1600px;
+  padding-inline: 0.5em;
+}
 [logo] {
   font-family: "Indie Flower", cursive;
   text-decoration: none;
@@ -56,31 +61,31 @@ nav {
     @apply flex flex-col items-center;
 
     #underline-svg {
-      @apply inline-block mt-6;
+      @apply inline-block mt-6 max-w-full;
     }
   }
 
   &:hover .bottom {
-    gap: 0.6em;
+    gap: 0.3em;
   }
   .bottom {
     @apply inline-flex justify-center items-center gap-16  relative;
-    gap: 0.5em;
+    gap: 0.2em;
     transition: 300ms;
 
-    font-size: 2.5em;
+    font-size: 2.2em;
     font-family: "Bebas Neue", cursive;
 
     svg[id*="shape"] {
       opacity: 0.3;
-      height: 1em;
+      height: 0.5em;
     }
     #shape-right {
       @apply rotate-180;
     }
 
     #group-stars {
-      @apply absolute  top-2 right-14;
+      @apply absolute  top-2 right-5;
       height: 0.3em;
     }
   }
@@ -401,7 +406,7 @@ body.leave {
       padding-bottom: 1.5em;
       padding-inline: 1.5em;
       .title {
-        font-size: 2em;
+        font-size: 1.5em;
         font-weight: bold;
         margin-bottom: 1em;
         text-transform: uppercase;
@@ -527,6 +532,12 @@ body.leave {
   }
 }
 
+@media (max-width: 400px) {
+  .to-hide-mobile {
+    display: none;
+  }
+}
+
 // ---------------------
 
 .section-title {
@@ -569,6 +580,28 @@ body.leave {
   }
 }
 
+.moving-icon {
+  animation: moveLetter 2000ms infinite ease-in-out;
+  height: 3em;
+  aspect-ratio: 1;
+  // margin-top: -3em;
+  svg {
+    height: 100%;
+    width: 100%;
+  }
+  transition: 300ms;
+  filter: drop-shadow(0 1em 10px blue);
+
+  &:hover {
+    scale: 2;
+  }
+  &.messenger {
+    margin-top: -6em;
+    margin-bottom: 3em;
+    margin-inline: auto;
+    opacity: 0.2;
+  }
+}
 .moving-ball {
   display: block;
   //   $s: 1em;
@@ -704,5 +737,27 @@ body.leave {
     border: 5px solid transparent;
     border-right: $border-size solid $border-clr;
     border-bottom: $border-size solid $border-clr;
+  }
+}
+
+.social-links-wrapper {
+  @apply flex flex-col items-center mx-auto w-fit;
+  gap: 1em;
+  .social-link {
+    @apply flex items-center justify-between flex-1;
+    gap: 2em;
+    padding: 0.5em;
+    font-size: 2em;
+    width: 100%;
+    transition: 200ms;
+    outline: 0px solid transparent;
+    outline-offset: -2em;
+    &:hover {
+      outline: 2px solid rgb(156, 8, 255);
+      outline-offset: 0.1em;
+    }
+    .moving-icon {
+      height: 1em;
+    }
   }
 }
