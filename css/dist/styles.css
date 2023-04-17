@@ -822,4 +822,8 @@ body.leave [class*=custom-cursor] {
 .social-links-wrapper .social-link .moving-icon {
   height: 1em;
 }
+
+section:last-of-type {
+  padding-bottom: 3em;
+}
 /*# sourceMappingURL=styles.css.map */
