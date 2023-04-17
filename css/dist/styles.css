@@ -622,17 +622,17 @@ body.leave [class*=custom-cursor] {
   display: inline-block;
 }
 
-.moving-word span {
+.moving-word .moving-buddy {
   display: inline-block;
   animation: moveLetter 2000ms infinite ease-in-out;
   transition: 200ms;
 }
 
-.moving-word span:hover {
+.moving-word .moving-buddy:hover {
   scale: 2;
 }
 
-.moving-word span.empty {
+.moving-word .moving-buddy.moving-buddy.empty {
   width: 1ch;
 }
 
@@ -829,5 +829,100 @@ body.leave [class*=custom-cursor] {
 
 section:last-of-type {
   padding-bottom: 3em;
+}
+
+.ball {
+  display: inline-block;
+  height: 0.3em;
+  aspect-ratio: 1;
+  background: rgb(142, 247, 3);
+  border-radius: 50%;
+  animation: bounce 300ms infinite;
+}
+
+@keyframes bounce {
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.en-cours {
+  font-size: 0.5em;
+}
+
+.welcome-overlay{
+  position: fixed;
+  inset: 0px;
+  display: grid;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(6, 6, 78, 0.686);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  z-index: 99;
+  font-size: 3em;
+  font-family: "Aboreto", cursive;
+  font-weight: bold;
+  opacity: 1;
+}
+
+.welcome-overlay.fade {
+  transition: 2s;
+  transition-delay: 1s;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.welcome-overlay.fade .moving-buddy-wrapper {
+  animation: wild 2s forwards;
+  animation-timing-function: cubic-bezier(0.86, -0.44, 0.06, 0.77);
+}
+
+.welcome-overlay .moving-buddy-wrapper {
+  display: inline-block;
+}
+
+.welcome-overlay .moving-buddy-wrapper:nth-child(1) {
+  animation-delay: calc(100ms * 1);
+}
+
+.welcome-overlay .moving-buddy-wrapper:nth-child(2) {
+  animation-delay: calc(100ms * 2);
+}
+
+.welcome-overlay .moving-buddy-wrapper:nth-child(3) {
+  animation-delay: calc(100ms * 3);
+}
+
+.welcome-overlay .moving-buddy-wrapper:nth-child(4) {
+  animation-delay: calc(100ms * 4);
+}
+
+.welcome-overlay .moving-buddy-wrapper:nth-child(5) {
+  animation-delay: calc(100ms * 5);
+}
+
+.welcome-overlay .moving-buddy-wrapper:nth-child(6) {
+  animation-delay: calc(100ms * 6);
+}
+
+.welcome-overlay .moving-buddy-wrapper:nth-child(7) {
+  animation-delay: calc(100ms * 7);
+}
+
+.welcome-overlay .moving-buddy-wrapper:nth-child(8) {
+  animation-delay: calc(100ms * 8);
+}
+
+@keyframes wild {
+  0% {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(120vh);
+  }
 }
 /*# sourceMappingURL=styles.css.map */

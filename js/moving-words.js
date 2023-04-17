@@ -9,12 +9,20 @@ wrappers.forEach((wrapper) => {
   words = words.map((word) => {
     let letters = word.split("");
 
-    letters = letters.map((letter) => `<span class="letter">${letter}</span>`);
+    letters = letters.map(
+      (letter) => `
+    
+    <span class='moving-buddy-wrapper'>
+    
+    <span class="letter moving-buddy">${letter}</span>
+    </span>
+    `
+    );
     word = letters.join("");
     return `<div>${word}</div>`;
   });
 
-  words = words.join("<span class='empty'></span>");
+  words = words.join("<span class='empty moving-buddy'></span>");
 
   wrapper.innerHTML = words;
 

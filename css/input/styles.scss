@@ -558,7 +558,7 @@ body.leave {
   div {
     display: inline-block;
   }
-  span {
+  .moving-buddy {
     display: inline-block;
     animation: moveLetter 2000ms infinite ease-in-out;
     transition: 200ms;
@@ -566,7 +566,7 @@ body.leave {
       scale: 2;
     }
 
-    &.empty {
+    &.moving-buddy.empty {
       width: 1ch;
     }
   }
@@ -767,4 +767,68 @@ body.leave {
 
 section:last-of-type {
   padding-bottom: 3em;
+}
+
+// ---------------- en cours
+.ball {
+  display: inline-block;
+  $s: 0.3em;
+  height: $s;
+  aspect-ratio: 1;
+  background: rgb(142, 247, 3);
+  border-radius: 50%;
+  animation: bounce 300ms infinite;
+}
+@keyframes bounce {
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.en-cours {
+  font-size: 0.5em;
+}
+
+// ------------------------
+.welcome-overlay {
+  @apply fixed w-screen h-screen grid items-center justify-center inset-0;
+  background-color: rgba(6, 6, 78, 0.686);
+  backdrop-filter: blur(20px);
+  z-index: 99;
+  font-size: 3em;
+  // display: none;
+  font-family: "Aboreto", cursive;
+  font-weight: bold;
+  opacity: 1;
+  &.fade {
+    .moving-buddy-wrapper {
+      animation: wild 2s forwards;
+      animation-timing-function: cubic-bezier(0.86, -0.44, 0.06, 0.77);
+    }
+
+    transition: 2s;
+    transition-delay: 1s;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .moving-buddy-wrapper {
+    display: inline-block;
+
+    $delay: 100ms;
+    @for $i from 1 through 8 {
+      &:nth-child(#{$i}) {
+        animation-delay: calc(#{$delay} * #{$i});
+      }
+    }
+  }
+}
+
+@keyframes wild {
+  0% {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(120vh);
+  }
 }
