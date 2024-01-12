@@ -1,0 +1,21 @@
+.cursor-dot {
+  position: fixed;
+  top: var(--y, 0);
+  left: var(--x, 0);
+  $s: 0.7em;
+  height: $s;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: var(--color, rgb(29, 8, 121));
+  animation: fade 1s forwards;
+  filter: blur(10px);
+  pointer-events: none;
+}
+
+$y: 10px;
+@keyframes fade {
+  100% {
+    transform: scale(0) translateY(0);
+    // opacity: 0;
+  }
+}

@@ -1,0 +1,18 @@
+.cursor-dot {
+  position: fixed;
+  top: var(--y, 0);
+  left: var(--x, 0);
+  height: 0.7em;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: var(--color, rgb(29, 8, 121));
+  animation: fade 1s forwards;
+  filter: blur(10px);
+  pointer-events: none;
+}
+
+@keyframes fade {
+  100% {
+    transform: scale(0) translateY(0);
+  }
+}/*# sourceMappingURL=cursor.css.map */
