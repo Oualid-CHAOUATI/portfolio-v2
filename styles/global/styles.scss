@@ -400,6 +400,7 @@ section#presentation .container {
   opacity: 0.2;
 }
 
+$border-color: currentColor;
 .more-front-end-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -407,7 +408,7 @@ section#presentation .container {
   gap: 3em;
   position: relative;
   padding: 3em;
-  outline: 2px solid blue;
+  outline: 2px solid $border-color;
 }
 
 .more-front-end-wrapper .svg-wrapper {
@@ -421,7 +422,8 @@ section#presentation .container {
   box-sizing: border-box;
   height: 5em;
   width: 5em;
-  border: 2px solid yellow;
+  // border: 2px solid blue;
+  border: 2px solid $border-color;
   border-radius: 50%;
   padding: 1.5em;
   overflow: visible;
@@ -439,10 +441,9 @@ section#presentation .container {
   position: relative;
   padding: 0.8em 1em;
   border-radius: 0.5em;
-  background: linear-gradient(45deg, rgb(2, 2, 71), blue, rgb(174, 59, 255));
-  background-size: 200% 100%;
+  background-color: var(--color);
   transition: 200ms;
-  color: var(--color-dark);
+  color: var(--bg);
 }
 
 .more-front-end-wrapper p .trip-btn::before {
@@ -452,7 +453,6 @@ section#presentation .container {
   left: 10%;
   display: inline-grid;
   place-items: center;
-  background-color: blue;
   border-radius: 50%;
   transition: 300ms;
   height: 2em;
@@ -463,10 +463,6 @@ section#presentation .container {
   left: 90%;
 }
 
-.more-front-end-wrapper p .trip-btn:hover {
-  background-position: 50%;
-}
-
 .more-front-end-wrapper:before {
   content: "";
   position: absolute;
@@ -475,8 +471,8 @@ section#presentation .container {
   height: 3em;
   aspect-ratio: 1;
   border: 5px solid transparent;
-  border-top: 1em solid rgb(185, 9, 150);
-  border-left: 1em solid rgb(185, 9, 150);
+  border-top: 1em solid $border-color;
+  border-left: 1em solid $border-color;
 }
 
 .more-front-end-wrapper:after {
@@ -487,8 +483,8 @@ section#presentation .container {
   height: 3em;
   aspect-ratio: 1;
   border: 5px solid transparent;
-  border-right: 1em solid rgb(185, 9, 150);
-  border-bottom: 1em solid rgb(185, 9, 150);
+  border-right: 1em solid $border-color;
+  border-bottom: 1em solid $border-color;
 }
 
 .ball {
