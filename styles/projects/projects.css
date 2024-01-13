@@ -6,23 +6,21 @@
   gap: 3em;
 }
 
-body .projects-wrapper .project-wrapper {
+.projects-wrapper .project-wrapper {
   display: flex;
   gap: 3em;
   max-width: -moz-fit-content;
   max-width: fit-content;
   position: relative;
+  padding-top: 2em;
   --border-color: black;
 }
-body .projects-wrapper .project-wrapper:before {
+.projects-wrapper .project-wrapper:before {
   content: "";
   position: absolute;
-  inset: -2em 0 0 0;
+  inset: 0 0 0 0;
   border: 2px solid var(--border-color);
   border-radius: 0.3em;
-}
-body:has(#scheme-inut:checked) .project-wrapper:before {
-  --border-color: yellow !important;
 }
 
 .projects-wrapper .project-wrapper .left {
@@ -36,17 +34,16 @@ body:has(#scheme-inut:checked) .project-wrapper:before {
   transition: 200ms;
   flex-shrink: 0;
 }
-
-.projects-wrapper .project-wrapper .left:hover {
-  outline-color: white;
-  outline-offset: 1em;
-}
-
 .projects-wrapper .project-wrapper .left img {
   height: 100%;
   width: 100%;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
+}
+
+.projects-wrapper .project-wrapper .left:hover {
+  outline-color: var(--color);
+  outline-offset: 1em;
 }
 
 .projects-wrapper .project-wrapper .left {
@@ -98,36 +95,45 @@ body:has(#scheme-inut:checked) .project-wrapper:before {
   transition: 200ms;
 }
 
+.btns-wrapper a.code {
+  color: var(--color);
+}
+
 .btns-wrapper a.demo {
   --bg-color: blue;
-  --shift: 5px;
-  position: relative;
+  background: var(--bg-color);
+  color: var(--color);
+  border: 0;
+}
+.btns-wrapper a.demo span {
   color: var(--bg-light);
 }
 
-.btns-wrapper a.demo:after {
-  content: "";
-  font-size: inherit;
+.btns-wrapper svg {
+  color: inherit;
+  border: 2px solid currentColor;
   position: absolute;
-  inset: -0.1em;
-  background: var(--bg-color);
-  transform: translate(var(--shift), var(--shift));
-  border-radius: inherit;
-  transition: 200ms;
-  z-index: -1;
+  top: -0.6em;
+  right: -0.6em;
+  padding: 0.4em;
+  --opacity: 1;
+  --size: 0.2em;
+  filter: blur(var(--blur));
+  height: var(--size);
+  width: var(--size);
+  border-radius: 50%;
+  transition: 200ms, filter 400ms;
+  opacity: var(--opacity);
+}
+.btns-wrapper svg, .btns-wrapper svg * {
+  stroke: currentColor;
 }
 
-.btns-wrapper a.demo:hover {
-  --shift: -5px;
-}
-
-.btns-wrapper {
-  --svg-border-clr: white;
-}
-
-.btns-wrapper a:hover {
+.btns-wrapper a:hover span {
   color: transparent;
-  --svg-bg-clr: transparent;
+}
+.btns-wrapper a:hover.demo svg {
+  color: var(--bg-light);
 }
 
 .btns-wrapper a:hover svg {
@@ -137,38 +143,6 @@ body:has(#scheme-inut:checked) .project-wrapper:before {
   opacity: 1;
   --size: 2em;
   --blur: 0;
-}
-
-.btns-wrapper .demo {
-  --svg-bg-clr: rgb(9, 9, 61);
-  --svg-border-clr: white;
-}
-
-.btns-wrapper .code {
-  --svg-bg-clr: rgb(116, 37, 37);
-  --svg-border-clr: white;
-}
-
-.btns-wrapper svg {
-  background-color: var(--svg-bg-clr);
-  border: 2px solid var(--svg-border-clr);
-  position: absolute;
-  top: -0.6em;
-  right: -0.6em;
-  padding: 0.4em;
-  --opacity: 1;
-  --size: 0.2em;
-  --blur: 8px;
-  filter: blur(var(--blur));
-  height: var(--size);
-  width: var(--size);
-  border-radius: 50%;
-  transition: 200ms, filter 400ms;
-  opacity: var(--opacity);
-}
-
-.btns-wrapper svg > * {
-  opacity: var(--opacity);
 }
 
 @media (max-width: 900px) {

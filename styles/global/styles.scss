@@ -54,6 +54,10 @@ body {
   font-size: clamp(14px, 2vw, 24px);
   font-family: "Sawarabi Mincho", sans-serif;
 }
+main {
+  display: grid;
+  gap: 2em;
+}
 section:last-of-type {
   padding-bottom: 3em;
 }
@@ -67,8 +71,9 @@ section:last-of-type {
 section#presentation .container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  // min-height: 100vh;
   gap: 2em;
+  margin-bottom: 5em;
 }
 #hero-title {
   text-align: center;
@@ -292,7 +297,7 @@ section#presentation .container {
 }
 
 .section-title {
-  margin-block: 2em;
+  margin-bottom: 1em;
   display: flex;
   justify-content: center;
   font-size: clamp(1em, 3vw, 2em);

@@ -1,5 +1,5 @@
 onload = () => {
-  const OFFSET = 10;
+  const OFFSET = 30;
   let lastPos = { x: 0, y: 0 };
   window.addEventListener("mousemove", function (e) {
     // debugger;
