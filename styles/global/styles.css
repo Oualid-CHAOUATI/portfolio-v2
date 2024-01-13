@@ -394,6 +394,7 @@ section#presentation .container {
   position: relative;
   padding: 3em;
   outline: 2px solid currentColor;
+  width: 100%;
 }
 
 .more-front-end-wrapper .svg-wrapper {
@@ -421,16 +422,18 @@ section#presentation .container {
   text-align: justify;
 }
 
-.more-front-end-wrapper p .trip-btn {
+.more-front-end-wrapper .trip-btn {
   position: relative;
   padding: 0.8em 1em;
   border-radius: 0.5em;
   background-color: var(--color);
   transition: 200ms;
   color: var(--bg);
+  display: inline-block;
+  margin-top: 1.2em;
 }
 
-.more-front-end-wrapper p .trip-btn::before {
+.more-front-end-wrapper .trip-btn::before {
   content: "👆";
   position: absolute;
   top: 90%;
@@ -443,7 +446,7 @@ section#presentation .container {
   aspect-ratio: 1;
 }
 
-.more-front-end-wrapper p .trip-btn:hover:before {
+.more-front-end-wrapper .trip-btn:hover:before {
   left: 90%;
 }
 

@@ -409,12 +409,12 @@ $border-color: currentColor;
   position: relative;
   padding: 3em;
   outline: 2px solid $border-color;
+  width: 100%;
 }
 
 .more-front-end-wrapper .svg-wrapper {
   position: relative;
   display: inline-block;
-  height: -moz-fit-content;
   height: fit-content;
 }
 
@@ -437,16 +437,18 @@ $border-color: currentColor;
   text-align: justify;
 }
 
-.more-front-end-wrapper p .trip-btn {
+.more-front-end-wrapper .trip-btn {
   position: relative;
   padding: 0.8em 1em;
   border-radius: 0.5em;
   background-color: var(--color);
   transition: 200ms;
   color: var(--bg);
+  display: inline-block;
+  margin-top: 1.2em;
 }
 
-.more-front-end-wrapper p .trip-btn::before {
+.more-front-end-wrapper .trip-btn::before {
   content: "👆";
   position: absolute;
   top: 90%;
@@ -459,7 +461,7 @@ $border-color: currentColor;
   aspect-ratio: 1;
 }
 
-.more-front-end-wrapper p .trip-btn:hover:before {
+.more-front-end-wrapper .trip-btn:hover:before {
   left: 90%;
 }
 
