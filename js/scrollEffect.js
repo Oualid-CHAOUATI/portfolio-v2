@@ -11,6 +11,7 @@ function showMini(text) {
   miniNav.textContent = text;
   nav.classList.add("hide");
   navWrapper.style.width = miniNav.offsetWidth + "px";
+  navWrapper.style.height = miniNav.offsetHeight + "px";
   setTimeout(() => {
     miniNav.classList.remove("hide");
     nav.classList.add("hide");
@@ -19,6 +20,7 @@ function showMini(text) {
 
 function showNav() {
   navWrapper.style.width = navWrapper.scrollWidth + "px";
+  navWrapper.style.height = nav.offsetHeight + "px";
   miniNav.classList.add("hide");
   setTimeout(() => {
     nav.classList.remove("hide");

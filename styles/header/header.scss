@@ -27,7 +27,7 @@ header {
   a {
     display: inline-block;
     text-transform: capitalize;
-    padding: 1em;
+    padding: 0.4em;
     span {
       font-size: 0.7em;
     }
@@ -48,7 +48,7 @@ header {
   gap: 1em;
   border-radius: 21em;
   padding: 0.5em;
-  .logo {
+  s .logo {
     $s: 2em;
     height: $s;
     width: $s;
@@ -61,11 +61,11 @@ header {
     position: relative;
     $h: 2em;
     height: $h;
-    overflow: hidden;
+    // overflow: hidden;
     transition: width 0.3s;
     .mini-nav,
     .nav {
-      height: $h;
+      // height: $h;
       align-items: center;
       display: flex;
       padding: 0.8em;
@@ -77,13 +77,27 @@ header {
       padding-inline: 2em;
       border-radius: 1em;
       border: 1px solid rgba(var(--color), 0.5);
+      position: relative;
+      // bottom: 100%;
+      transform: translateY(-100%);
     }
     .nav {
       white-space: nowrap;
       position: relative;
-      bottom: 100%;
+      // bottom: 100%;
       position: relative;
       margin: auto;
+    }
+  }
+}
+
+@media (max-width: 1600px) {
+  .nav {
+    white-space: initial !important;
+    .nav-menu {
+      display: grid;
+      gap: 0.1em;
+      grid-template-columns: max-content max-content;
     }
   }
 }

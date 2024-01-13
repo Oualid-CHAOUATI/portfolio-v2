@@ -33,15 +33,46 @@ a {
 }
 
 #scheme-input-label {
-  height: 2em;
-  width: 2em;
-  background-color: red;
+  height: 1.8em;
+  width: 1.8em;
+  background-color: var(--color);
   display: block;
   border-radius: 50%;
   position: fixed;
-  right: 0;
+  right: 0.5em;
+  top: 0.5em;
   left: auto;
   z-index: 2;
+  cursor: pointer;
+}
+#scheme-input-label #svgs-wrapper {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  color: var(--bg);
+}
+#scheme-input-label #svgs-wrapper svg {
+  position: absolute;
+  content: "";
+  inset: 0.4em;
+}
+#scheme-input-label #svgs-wrapper svg,
+#scheme-input-label #svgs-wrapper svg * {
+  fill: currentColor !important;
+}
+#scheme-input-label svg {
+  opacity: 0;
+  transition: 200ms;
+}
+#scheme-input-label svg#moon-svg {
+  opacity: 1;
+}
+
+body:has(#scheme-input:checked) #svgs-wrapper svg#sun-svg {
+  opacity: 1 !important;
+}
+body:has(#scheme-input:checked) #svgs-wrapper svg#moon-svg {
+  opacity: 0 !important;
 }
 
 body {
@@ -54,6 +85,7 @@ body {
 main {
   display: grid;
   gap: 2em;
+  margin-top: 2em;
 }
 
 section:last-of-type {
