@@ -39,6 +39,8 @@ a {
   display: block;
   border-radius: 50%;
   position: fixed;
+  right: 0;
+  left: auto;
   z-index: 2;
 }
 
@@ -58,6 +60,13 @@ section:last-of-type {
   margin-right: auto;
   max-width: 1600px;
   padding-inline: 0.5em;
+}
+
+section#presentation .container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  gap: 2em;
 }
 
 #hero-title {
@@ -84,7 +93,6 @@ section:last-of-type {
   justify-content: center;
   gap: 4rem;
   gap: 0.2em;
-  transition: 300ms;
   font-size: 2.2em;
   font-family: "Bebas Neue", monospace;
 }
@@ -99,6 +107,7 @@ section:last-of-type {
   margin-right: auto;
   text-align: center;
   max-width: 90ch;
+  margin-top: 2em;
 }
 
 .scroll-down-btn {
@@ -109,7 +118,6 @@ section:last-of-type {
   margin-left: auto;
   margin-right: auto;
   margin-top: 4rem;
-  margin-bottom: 4rem;
   display: grid;
   place-items: center;
   border-radius: 9999px;
@@ -367,6 +375,9 @@ section:last-of-type {
   padding: 1.5em;
   overflow: visible;
 }
+.more-front-end-wrapper .svg-wrapper svg * {
+  stroke: currentColor;
+}
 
 .more-front-end-wrapper p {
   max-width: 60ch;
@@ -380,6 +391,7 @@ section:last-of-type {
   background: linear-gradient(45deg, rgb(2, 2, 71), blue, rgb(174, 59, 255));
   background-size: 200% 100%;
   transition: 200ms;
+  color: var(--color-dark);
 }
 
 .more-front-end-wrapper p .trip-btn::before {
@@ -428,6 +440,25 @@ section:last-of-type {
   border-bottom: 1em solid rgb(185, 9, 150);
 }
 
+.ball {
+  display: inline-block;
+  height: 0.3em;
+  aspect-ratio: 1;
+  background: rgb(142, 247, 3);
+  border-radius: 50%;
+  transform-origin: bottom;
+  animation: bounce 300ms infinite;
+}
+
+@keyframes bounce {
+  40%, 50%, 60% {
+    transform: translateY(-10px) scaleY(0.8);
+  }
+}
+.en-cours {
+  font-size: 0.5em;
+}
+
 .social-links-wrapper {
   margin-left: auto;
   margin-right: auto;
@@ -454,26 +485,11 @@ section:last-of-type {
 .social-links-wrapper .social-link .moving-icon {
   height: 1em;
 }
+.social-links-wrapper .social-link .moving-icon svg,
+.social-links-wrapper .social-link .moving-icon svg * {
+  stroke: currentColor;
+}
 .social-links-wrapper .social-link:hover {
   outline: 2px solid rgb(156, 8, 255);
   outline-offset: 0.1em;
-}
-
-.ball {
-  display: inline-block;
-  height: 0.3em;
-  aspect-ratio: 1;
-  background: rgb(142, 247, 3);
-  border-radius: 50%;
-  transform-origin: bottom;
-  animation: bounce 300ms infinite;
-}
-
-@keyframes bounce {
-  40%, 50%, 60% {
-    transform: translateY(-10px) scaleY(0.8);
-  }
-}
-.en-cours {
-  font-size: 0.5em;
 }/*# sourceMappingURL=styles.css.map */
