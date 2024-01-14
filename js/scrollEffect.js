@@ -1,10 +1,34 @@
+class ObserverCurrentSection {
+  constructor() {
+    this.callbacks = [];
+    this.currentSection = "";
+  }
+
+  callCallbacks() {
+    this.callbacks.forEach((callback) => callback(this.currentSection));
+  }
+
+  addCallback(callback) {
+    this.callbacks.push(callback);
+    return this;
+  }
+
+  setCurrentSectionValue(text) {
+    this.currentSection = text;
+    return this;
+  }
+}
+
 class ScrollEffect {
   constructor() {
     this.lastScroll = 0;
     this.isMiniNavShown = false;
-    this.currentSection;
+    this.curentSectionObserver = new ObserverCurrentSection();
     this.bindMethods();
+
+    //call init before addCallbacksToObserve, because callbacks uses HTMLEleements selected in init()
     this.init();
+    this.addCallbacksToObserver();
     this.handleMouseoverHeader();
     this.applyIntersectionObserver();
     this.handleResize();
@@ -16,18 +40,26 @@ class ScrollEffect {
 
     this.handleScroll = this.handleScroll.bind(this);
   }
-
+  addCallbacksToObserver() {
+    this.curentSectionObserver
+      .addCallback((text) => (this.$miniNav.innerHTML = text))
+      .addCallback((text) => (this.$currentSection.innerHTML = text));
+  }
   init() {
     this.$header = document.querySelector("header");
+
     const $miniNavOriginal = document.querySelector(".mini-nav");
     this.$miniNav = $miniNavOriginal.cloneNode(true);
     $miniNavOriginal.remove();
+
     const $navOriginal = document.querySelector(".nav");
     this.$nav = $navOriginal.cloneNode(true);
     $navOriginal.remove();
 
     this.$navWrapper = document.querySelector(".nav-wrapper");
     this.$navWrapper.append(this.$nav);
+
+    this.$currentSection = document.querySelector("#current-section");
   }
 
   handleMouseoverHeader() {
@@ -36,21 +68,17 @@ class ScrollEffect {
     });
   }
 
-  showMini(text) {
-    const $currentSection = document.querySelector("#current-section");
-    $currentSection.innerHTML = text;
-
-    const isMobile = window
-      .getComputedStyle(this.$header)
-      .getPropertyValue("--isMobile");
-
-    if (isMobile) {
+  isMobile() {
+    return window.getComputedStyle(this.$header).getPropertyValue("--isMobile");
+  }
+  showMini() {
+    if (this.isMobile()) {
       this.isMiniNavShown = false;
       return;
     }
 
     this.isMiniNavShown = true;
-    this.$miniNav.textContent = text;
+    // this.$miniNav.textContent = text;
     this.$nav.classList.add("hide");
 
     if (this.$navWrapper.contains(this.$nav)) {
@@ -92,7 +120,10 @@ class ScrollEffect {
 
   applyIntersectionObserver() {
     const elementsToWatch = document.querySelectorAll("section");
-    this.currentSection = elementsToWatch[0].id;
+    this.curentSectionObserver
+      .setCurrentSectionValue(elementsToWatch[0].id)
+      .callCallbacks();
+
     this.showNav();
     this.isJustLoadPage = true;
 
@@ -115,13 +146,16 @@ class ScrollEffect {
 
       if (!isIntersecting) return;
 
-      this.currentSection = target.id;
+      const currentSection = target.id;
 
+      this.curentSectionObserver
+        .setCurrentSectionValue(currentSection)
+        .callCallbacks();
       if (entry.intersectionRect.top > entry.boundingClientRect.top) return;
 
       if (this.isJustLoadPage) return (this.isJustLoadPage = false);
 
-      this.showMini(this.currentSection);
+      this.showMini();
     });
   }
 
@@ -135,7 +169,7 @@ class ScrollEffect {
         this.lastScroll = scroll;
 
         if (!this.isMiniNavShown) {
-          this.showMini(this.currentSection);
+          this.showMini();
         }
       }
     } else {

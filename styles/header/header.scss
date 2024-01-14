@@ -103,6 +103,7 @@ header #header-input-label {
 }
 @media (max-width: 560px) {
   body:has(#header-input:checked) {
+    overflow-y: hidden;
     #label-for-header-menu {
       position: fixed;
       // background-color: red;
