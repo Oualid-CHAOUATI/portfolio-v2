@@ -28,6 +28,7 @@ class ScrollEffect {
 
     //call init before addCallbacksToObserve, because callbacks uses HTMLEleements selected in init()
     this.init();
+    this.addNavClickHandler();
     this.addCallbacksToObserver();
     this.handleMouseoverHeader();
     this.applyIntersectionObserver();
@@ -60,6 +61,19 @@ class ScrollEffect {
     this.$navWrapper.append(this.$nav);
 
     this.$currentSection = document.querySelector("#current-section");
+  }
+
+  addNavClickHandler() {
+    if (this.isMobile)
+      this.$nav.addEventListener("click", this.handleLinkClick);
+    else this.$nav.removeEventListener("click", this.handleLinkClick);
+  }
+
+  handleLinkClick(e) {
+    const target = e.target;
+    if (target.tagName.toLowerCase() == "a") {
+      document.querySelector("#header-input").click();
+    }
   }
 
   handleMouseoverHeader() {
@@ -99,14 +113,16 @@ class ScrollEffect {
 
   showNav() {
     // debugger;
-    if (!this.isMiniNavShown) return;
+    // if (!this.isMiniNavShown) return;
     this.isMiniNavShown = false;
 
     if (this.$navWrapper.contains(this.$miniNav)) {
       this.$navWrapper.removeChild(this.$miniNav);
     }
 
-    this.$navWrapper.appendChild(this.$nav);
+    if (!this.$navWrapper.contains(this.$nav))
+      this.$navWrapper.appendChild(this.$nav);
+    
     this.$miniNav.classList.add("hide");
     this.$navWrapper.style.setProperty(
       "--width",
@@ -200,6 +216,7 @@ class ScrollEffect {
         setTimeout(() => {
           this.showNav();
           window.addEventListener("scroll", this.handleScroll);
+          this.addNavClickHandler();
         }, 600);
       }, 300);
     });

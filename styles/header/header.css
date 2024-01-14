@@ -100,15 +100,26 @@ header #header-input-label {
   display: none;
 }
 
+#label-for-header-menu {
+  transition: opacity 200ms;
+  position: fixed;
+  background-color: var(--bg);
+  height: 100vh;
+  width: 100vw;
+  z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+}
+
 @media (max-width: 560px) {
   body:has(#header-input:checked) {
     overflow-y: hidden;
   }
   body:has(#header-input:checked) #label-for-header-menu {
-    position: fixed;
-    height: 100vh;
-    width: 100vw;
-    z-index: 2;
+    pointer-events: all;
+    opacity: 0.8;
   }
   #scheme-input-label {
     top: auto;
