@@ -92,6 +92,8 @@
   gap: 0.5em;
   position: relative;
   border: 2px solid var(--color);
+}
+.btns-wrapper a span {
   transition: 200ms;
 }
 

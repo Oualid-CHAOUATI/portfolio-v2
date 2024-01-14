@@ -3,28 +3,39 @@ header.addEventListener("mouseover", () => {
   console.log("mouseover on header");
   showNav();
 });
-const miniNav = document.querySelector(".mini-nav");
-const nav = document.querySelector(".nav");
+const miniNavOr = document.querySelector(".mini-nav");
+const miniNav = miniNavOr.cloneNode(true);
+miniNavOr.remove();
+
+const navOr = document.querySelector(".nav");
+const nav = navOr.cloneNode(true);
+navOr.remove();
+navOr.remove();
+
 const navWrapper = document.querySelector(".nav-wrapper");
 
 function showMini(text) {
   miniNav.textContent = text;
   nav.classList.add("hide");
+
+  if (navWrapper.contains(nav)) navWrapper.removeChild(nav);
+  navWrapper.appendChild(miniNav);
   navWrapper.style.width = miniNav.offsetWidth + "px";
   navWrapper.style.height = miniNav.offsetHeight + "px";
   setTimeout(() => {
     miniNav.classList.remove("hide");
-    nav.classList.add("hide");
   }, 300);
 }
 
 function showNav() {
+  if (navWrapper.contains(miniNav)) navWrapper.removeChild(miniNav);
+  miniNav.classList.add("hide");
+  navWrapper.appendChild(nav);
   navWrapper.style.width = navWrapper.scrollWidth + "px";
   navWrapper.style.height = nav.offsetHeight + "px";
   miniNav.classList.add("hide");
   setTimeout(() => {
     nav.classList.remove("hide");
-    miniNav.classList.add("hide");
   }, 300);
 }
 let lastScroll = 0;

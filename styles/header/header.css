@@ -24,10 +24,14 @@ header:before {
   display: flex;
   gap: 0.5em;
 }
+.nav-menu:has(a:hover) a:not(:hover) {
+  opacity: 0.4;
+}
 .nav-menu a {
   display: inline-block;
   text-transform: capitalize;
-  padding: 0.4em;
+  padding: 0.1em 0.4em;
+  transition: opacity 200ms;
 }
 .nav-menu a span {
   font-size: 0.7em;
@@ -49,7 +53,7 @@ header:before {
   border-radius: 21em;
   padding: 0.5em;
 }
-.header s .logo {
+.header .logo {
   height: 2em;
   width: 2em;
   background-color: blue;
@@ -59,14 +63,12 @@ header:before {
 }
 .header .nav-wrapper {
   position: relative;
-  height: 2em;
-  transition: width 0.3s;
+  transition: width 0.2s, height 0.2s;
 }
 .header .nav-wrapper .mini-nav,
 .header .nav-wrapper .nav {
   align-items: center;
   display: flex;
-  padding: 0.8em;
   transition: width 300ms;
 }
 .header .nav-wrapper .mini-nav {
@@ -74,9 +76,6 @@ header:before {
   width: max-content;
   padding-inline: 2em;
   border-radius: 1em;
-  border: 1px solid rgba(var(--color), 0.5);
-  position: relative;
-  transform: translateY(-100%);
 }
 .header .nav-wrapper .nav {
   white-space: nowrap;

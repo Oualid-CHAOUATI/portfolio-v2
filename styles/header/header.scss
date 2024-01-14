@@ -24,10 +24,17 @@ header {
 .nav-menu {
   display: flex;
   gap: 0.5em;
+
+  &:has(a:hover) {
+    a:not(:hover) {
+      opacity: 0.4;
+    }
+  }
   a {
     display: inline-block;
     text-transform: capitalize;
-    padding: 0.4em;
+    padding: 0.1em 0.4em;
+    transition: opacity 200ms;
     span {
       font-size: 0.7em;
     }
@@ -48,7 +55,7 @@ header {
   gap: 1em;
   border-radius: 21em;
   padding: 0.5em;
-  s .logo {
+  .logo {
     $s: 2em;
     height: $s;
     width: $s;
@@ -59,32 +66,21 @@ header {
   }
   .nav-wrapper {
     position: relative;
-    $h: 2em;
-    height: $h;
-    // overflow: hidden;
-    transition: width 0.3s;
+    transition: width 0.2s, height 0.2s;
     .mini-nav,
     .nav {
-      // height: $h;
       align-items: center;
       display: flex;
-      padding: 0.8em;
       transition: width 300ms;
     }
     .mini-nav {
-      // background: red;
       width: max-content;
       padding-inline: 2em;
       border-radius: 1em;
-      border: 1px solid rgba(var(--color), 0.5);
-      position: relative;
-      // bottom: 100%;
-      transform: translateY(-100%);
     }
     .nav {
       white-space: nowrap;
       position: relative;
-      // bottom: 100%;
       position: relative;
       margin: auto;
     }

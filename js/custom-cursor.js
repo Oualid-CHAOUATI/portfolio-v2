@@ -1,5 +1,9 @@
 onload = () => {
-  const OFFSET = 30;
+  const $dotsWrapper = document.createElement("div");
+  $dotsWrapper.id = "dots-wrapper";
+  document.body.appendChild($dotsWrapper);
+
+  const OFFSET = 40;
   let lastPos = { x: 0, y: 0 };
   window.addEventListener("mousemove", function (e) {
     // debugger;
@@ -13,7 +17,8 @@ onload = () => {
       div.classList.add("cursor-dot");
       div.style.setProperty("--x", x + "px");
       div.style.setProperty("--y", y + "px");
-      this.document.body.appendChild(div);
+
+      $dotsWrapper.appendChild(div);
       lastPos = { x, y };
 
       this.setTimeout(() => {
