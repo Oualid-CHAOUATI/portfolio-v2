@@ -87,7 +87,10 @@ header {
   }
 }
 
-@media (max-width: 1600px) {
+@media (max-width: 600px) {
+  header {
+    font-size: 1em;
+  }
   .nav {
     white-space: initial !important;
     .nav-menu {
