@@ -14,6 +14,13 @@ a {
   color: inherit;
 }
 
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1600px;
+  padding-inline: 1em;
+}
+
 :root {
   --bg-dark: rgb(19, 18, 18);
   --bg-light: #ffffff;
@@ -42,7 +49,7 @@ a {
   right: 0.5em;
   top: 0.5em;
   left: auto;
-  z-index: 2;
+  z-index: 4;
   cursor: pointer;
 }
 #scheme-input-label #svgs-wrapper {
@@ -80,6 +87,7 @@ body {
   color: var(--color);
   font-size: clamp(14px, 2vw, 24px);
   font-family: "Sawarabi Mincho", sans-serif;
+  overflow-x: hidden;
 }
 
 main {
@@ -90,13 +98,6 @@ main {
 
 section:last-of-type {
   padding-bottom: 3em;
-}
-
-.container {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 1600px;
-  padding-inline: 0.5em;
 }
 
 section#presentation .container {

@@ -28,55 +28,75 @@
 
 <body>
 
-    <label id="scheme-input-label">
 
+    <label for="header-input" id="label-for-header-menu"></label>
+    <label id="scheme-input-label">
         <input type="checkbox" id="scheme-input">
     </label>
-    <header class="header">
-        <div class="logo">w</div>
-        <div class="nav-wrapper">
 
+    <div class="container header-container">
 
+        <header class="header">
+            <div class="logo-wrapper">
 
-            <nav class="nav">
+                <span id="logo">
 
-                <ul class="ul nav-menu">
-                    <li class="nav-item">
-                        <a href="#presentation" class="nav-link active">
-                            <span>0//</span>
-                            presentation</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#compétences" class="nav-link">
-                            <span>1//</span>
+                    w
+                </span>
+                <div id="current-section">compétences</div>
+                <label id="header-input-label">
+                    <div class="bars">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
 
-                            compétences</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#projets" class="nav-link">
-
-                            <span>2//</span>
-                            projets</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#contact" class="nav-link">
-                            <span>3//</span>
-
-                            contact</a>
-                    </li>
-
-                </ul>
-
-
-            </nav>
-
-
-            <div class="mini-nav hide">
-                <div class="content">Hello</div>
+                    <input type="checkbox" id="header-input" />
+                </label>
             </div>
-        </div>
+            <div class=" nav-wrapper">
 
-    </header>
+
+
+                <nav class="nav">
+
+                    <ul class="ul nav-menu">
+                        <li class="nav-item">
+                            <a href="#presentation" class="nav-link active">
+                                <span>0//</span>
+                                presentation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#compétences" class="nav-link">
+                                <span>1//</span>
+
+                                compétences</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#projets" class="nav-link">
+
+                                <span>2//</span>
+                                projets</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#contact" class="nav-link">
+                                <span>3//</span>
+
+                                contact</a>
+                        </li>
+
+                    </ul>
+
+
+                </nav>
+
+
+                <div class="mini-nav hide">
+                    <div class="content">Hello</div>
+                </div>
+            </div>
+
+        </header>
+    </div>
 
     <main>
 
@@ -144,7 +164,7 @@
 
 
 
-                <a class="scroll-down-btn" href="#section-1">
+                <a class="scroll-down-btn" href="#compétences">
 
                     <p class="circular-text">Défiler pour voir plus</p>
 
