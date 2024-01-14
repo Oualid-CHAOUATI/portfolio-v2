@@ -87,7 +87,7 @@ header {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 500px) {
   header {
     font-size: 1em;
   }
@@ -95,7 +95,7 @@ header {
     white-space: initial !important;
     .nav-menu {
       display: grid;
-      gap: 0.1em;
+      gap: 1em;
       grid-template-columns: max-content max-content;
     }
   }
