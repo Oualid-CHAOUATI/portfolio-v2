@@ -122,7 +122,7 @@ class ScrollEffect {
 
     if (!this.$navWrapper.contains(this.$nav))
       this.$navWrapper.appendChild(this.$nav);
-    
+
     this.$miniNav.classList.add("hide");
     this.$navWrapper.style.setProperty(
       "--width",
@@ -204,20 +204,23 @@ class ScrollEffect {
    */
   handleResize() {
     let resizeTimer = null;
+    let innerResizeTimer = null;
     window.addEventListener("resize", () => {
       this.$header.classList.add("hide");
       window.removeEventListener("scroll", this.handleScroll);
 
       clearTimeout(resizeTimer);
+      clearTimeout(resizeTimer);
 
       resizeTimer = setTimeout(() => {
-        this.$header.classList.remove("hide");
-
-        setTimeout(() => {
-          this.showNav();
-          window.addEventListener("scroll", this.handleScroll);
-          this.addNavClickHandler();
-        }, 600);
+        this.showNav();
+        resizeTimer = setTimeout(() => {
+          this.$header.classList.remove("hide");
+        }, 400);
+        window.addEventListener("scroll", this.handleScroll);
+        //si mobile ? addEventtListener("click"..)
+        this.addNavClickHandler();
+        // }, 200);
       }, 300);
     });
   }
